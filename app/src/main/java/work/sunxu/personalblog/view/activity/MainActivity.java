@@ -29,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
     private final String CS = "CS";
     private final String THINKING = "Thinking";
     private final String ABOUT = "About";
+    private final String THINKING_HANIZATION = "观叹";
+    private final String ABOUT_HANIZATION = "关于我";
 
     private final String sTabs[] = new String[] { ANDROID, CS, THINKING, ABOUT };
+    private final String sTitles[] = new String[] { ANDROID, CS, THINKING_HANIZATION, ABOUT_HANIZATION };
 
     private Toolbar mToolbar;
     private ViewPager mViewPager;
@@ -46,6 +49,23 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         initData();
+    }
+
+
+    private void initView() {
+        mToolbar = findViewById(R.id.toolbar);
+        mViewPager = findViewById(R.id.viewpager);
+        mTabLayout = findViewById(R.id.tablayout);
+
+        initToolbar();
+    }
+
+
+    private void initToolbar() {
+        mToolbar.setTitle(getResources().getString(R.string.host));
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
     }
 
 
@@ -114,20 +134,12 @@ public class MainActivity extends AppCompatActivity {
 
 
             @Override public CharSequence getPageTitle(int position) {
-                return sTabs[position];
+                return sTitles[position];
             }
         });
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
 
-    private void initView() {
-        mToolbar = findViewById(R.id.toolbar);
-        mViewPager = findViewById(R.id.viewpager);
-        mTabLayout = findViewById(R.id.tablayout);
 
-        //setSupportActionBar(mToolbar);
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        //getSupportActionBar().setHomeButtonEnabled(true);
-    }
 }

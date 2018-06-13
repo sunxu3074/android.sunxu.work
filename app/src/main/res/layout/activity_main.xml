@@ -31,7 +31,7 @@
             android:minHeight="?attr/actionBarSize"
             android:background="@color/toolbar_background_color_500"
             app:tabGravity="fill"
-            app:tabMode="scrollable"
+            app:tabMode="fixed"
             app:tabTextColor="@color/tab_text_default_color"
             app:tabIndicatorColor="@android:color/white"
             app:tabSelectedTextColor="@android:color/white"
